@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.wallet.*
@@ -28,6 +29,7 @@ class CheckoutActivity : Activity() {
     private lateinit var selectearment: JSONObject
 
     private lateinit var googlePayButton : View
+    lateinit var text : TextView
 
     /**
      * Arbitrarily-picked constant integer you define to track a request for payment data activity.
@@ -41,6 +43,7 @@ class CheckoutActivity : Activity() {
         setContentView(R.layout.activity_checkout)
 
         googlePayButton = findViewById(R.id.googlePayButton)
+        text = findViewById(R.id.text)
 
         paymentsClient = PaymentsUtil.createPaymentsClient(this)
         possiblyShowGooglePayButton()
@@ -162,24 +165,25 @@ class CheckoutActivity : Activity() {
      */
     private fun handlePaymentSuccess(paymentData: PaymentData) {
         val paymentInformation = paymentData.toJson() ?: return
+        text.text = paymentInformation
 
-        try {
-            // Token will be null if PaymentDataRequest was not constructed using fromJson(String).
-            val paymentMethodData = JSONObject(paymentInformation).getJSONObject("paymentMethodData")
-            val billingName = paymentMethodData.getJSONObject("info")
-                    .getJSONObject("billingAddress").getString("name")
-            Log.d("BillingName", billingName)
-
-            Toast.makeText(this, getString(R.string.payments_show_name, billingName), Toast.LENGTH_LONG).show()
-
-            // Logging token string.
-            Log.d("GooglePaymentToken", paymentMethodData
-                    .getJSONObject("tokenizationData")
-                    .getString("token"))
-
-        } catch (e: JSONException) {
-            Log.e("handlePaymentSuccess", "Error: " + e.toString())
-        }
+//        try {
+//            // Token will be null if PaymentDataRequest was not constructed using fromJson(String).
+//            val paymentMethodData = JSONObject(paymentInformation).getJSONObject("paymentMethodData")
+//            val billingName = paymentMethodData.getJSONObject("info")
+//                    .getJSONObject("billingAddress").getString("name")
+//            Log.d("BillingName", billingName)
+//
+//            Toast.makeText(this, getString(R.string.payments_show_name, billingName), Toast.LENGTH_LONG).show()
+//
+//            // Logging token string.
+//            Log.d("GooglePaymentToken", paymentMethodData
+//                    .getJSONObject("tokenizationData")
+//                    .getString("token"))
+//
+//        } catch (e: JSONException) {
+//            Log.e("handlePaymentSuccess", "Error: " + e.toString())
+//        }
 
     }
 
