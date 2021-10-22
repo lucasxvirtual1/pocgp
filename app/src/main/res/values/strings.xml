@@ -3,4 +3,10 @@
     <string name="payments_show_name">Successfully received payment data for %s!</string>
     <string name="googlepay_button_content_description">Google Pay</string>
     <string name="buy_with_googlepay_button_content_description">Buy with Google Pay</string>
+    <string name="tdswa_webViewError_message">A networking error occurred while processing your payment.\nPlease try again later.</string>
+    <string name="tdswa_goBack_label">Go back</string>
+    <string name="tdswa_process_in_progress">Process in progress</string>
+
+    <string name="tds_challenge_popup_cancel_button">Cancel</string>
+    <string name="tds_challenge_popup_title">SECURE CHECKOUT</string>
 </resources>

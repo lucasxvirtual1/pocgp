@@ -83,7 +83,7 @@ object Constants {
      * @value #PAYMENT_GATEWAY_TOKENIZATION_NAME
      */
     const val PAYMENT_GATEWAY_TOKENIZATION_NAME = "trustpayments"
-    const val PAYMENT_GATEWAY_MERCHANT_ID = ""
+    const val PAYMENT_GATEWAY_MERCHANT_ID = "test_pgsmobilesdkandroid80666"
 
     /**
      * Custom parameters required by the processor/gateway.

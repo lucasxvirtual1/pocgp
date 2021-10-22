@@ -44,6 +44,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation "androidx.test.uiautomator:uiautomator:2.2.0"
     androidTestImplementation "androidx.test:rules:1.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    debugImplementation "org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.5-2"
+//    releaseImplementation "org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.5-2"
+//    packageReleaseEmbed "org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.5-2"
 
-    implementation 'com.google.android.gms:play-services-wallet:18.1.2'
+    androidTestImplementation "io.jsonwebtoken:jjwt-api:0.11.2"
+    androidTestImplementation "io.jsonwebtoken:jjwt-impl:0.11.2"
+    androidTestImplementation("io.jsonwebtoken:jjwt-orgjson:0.11.2") {
+        exclude group: 'org.json', module: 'json' //provided by Android natively
+    }
+    implementation 'com.google.android.gms:play-services-wallet:18.1.3'
 }
